@@ -4,15 +4,14 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Thanks for checking out my blog! I'm hoping to capture some of the hard fought lessons I've learned in hopes of helping others avoid the same mistakes. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I'm currently a product owner dabbling in both Cloud Native and Hybrid Cloud workstreams for a large financial services company based in the Midwest. Prior to being a product owner, I was a software engineer in a variety of infrastructure-first roles including Content Management, IAM/SSO/Encryption services, and our Cloud Native Platform Development team. 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+I spend a lot of time in Azure working with technical items such as IAM, Networking, Data Loss Prevention (DLP), and C# and PowerShell platform guardrails (Runbooks, Functions, AKS containers) and non-technical items such as Mergers & Acquistions, Data Classification and Governance, and, last but most definitely not least, Cost Management topics (allocations, efficiences, architectural and control decisions and their impact at scale). 
+
+In addition to the work experience above, I hold a CISSP, CCSP, Azure Expert Solutions Architect, and AWS Associate Solutions Architect certifications. As I write this, I'm in the final weeks of completing my MBA at the University of Wisconsin-Madison. 
+
+I have a beautful wife, and we just welcomed a newborn baby to the family. We also have a neurotic Dalmatian and an overweight cat running around and keeping life interesting. 
 
 
-[jekyll-organization]: https://github.com/jekyll
