@@ -28,7 +28,7 @@ github_username:  droessmj
 linkedin_username: michaeldroessler
 
 # Build settings
-theme: jekyll-theme-architect
+theme: minima
 plugins:
   - jekyll-feed
 
