@@ -11,18 +11,24 @@ Once you’ve turned on platform logs for multiple (tens, hundreds) of resources
 
 Note: The following links are all to the same article on Microsoft’s documentation site. If you find this post valuable, you probably should consider reading this linked article in its entirety. 
 
-First off, ask yourself if the logs being collected in your workspace are being used frequently, or are just a safety net. It’s going to be much cheaper to store the same logs in a Storage Account if you need them “just in case”. Storing these logs in a workspace is super convenient for immediate querying and access, while additional processes need to be built out to effectively consume these same logs as a developer from Event Hubs or Storage Account sinks. 
+#### [Where to Collect Logs?](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings#destinations) 
+First off, ask yourself if the logs being collected in your workspace are being used frequently, or are just a safety net. It’s going to be much cheaper to store the same logs in a Storage Account if you need them “just in case”. Storing these logs in a workspace is super convenient for immediate querying and access, while additional processes need to be built out to effectively consume these same logs as a developer from Event Hubs or Storage Account sinks. If you need to collect logs for compliance reasons and have no immediate plans to consume them for troubleshooting, Log Analytics is probably the worst sink to default to from a cost perspective. 
 
-Next, know that your first 31 days of retention are free in Log Analytics. After 31 days, you pay per GB for additional retention. Note that you pay a decent price to initially ingest so I’d highly encourage you to take full advantage of your 31 free days. However, you should take a moment to think about whether you want to keep data beyond that point as this retention fee can add up quickly should you look to retain data for 90, 180, or even 365 days.  [Retention Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+#### [How Long Should I Hold Them?](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
+Next, know that your first 31 days of retention are free in Log Analytics. After 31 days, you pay per GB for additional retention. Note that you pay a decent price to initially ingest so I’d highly encourage you to take full advantage of your 31 free days. However, you should take a moment to think about whether you want to keep data beyond that point as this retention fee can add up quickly should you look to retain data for 90, 180, or even 365 days.  
 
+#### [Can I Cap My Costs?](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#manage-your-maximum-daily-data-volume)
 For anyone who’s ever woken up to a surprise cloud bill due to runaway cost accumulation (and for those of you that have been lucky to this point), know that Log Analytics Workspaces allow you to cap the amount a given workspace will ingest in a given day. I would highly encourage anyone whose knees shake at the thought of a 3x-5x daily workspace bill to put a cap in place at a number which is well over your peak ingestion with room to grow. Don’t forget to setup Alerts to trigger and notify you when this cap is hit!
-[Daily Data Cap](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#manage-your-maximum-daily-data-volume)
 
+
+#### [Why am I Seeing So Much Data Ingestion?](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#understanding-ingested-data-volume)
 Now that you have your retention timeline under control and have capped your ingestion rate, the following link can be used to asses where exactly all the logs are coming from. Don’t be afraid to go back to point one and ask yourself whether you should be collecting these logs within a workspace, and if you must, at least understand the relative volumes of various log types. 
 
 As a quick aside, we discovered the AKS clusters have diagnostic logs for both “kube-admin” and kube-admin-audit”.  A bit of digging showed that over 96% of our AzureDiagnostic logs were coming from “kube-admin” — which contains more or less all CRUD activities performed for cluster management. For our needs, we only required the Create, Update, and Delete portions, which seemed to overlap extremely well with the “kube-admin-audit” diagnostic type. Updating this collection setting reduced the amount of logs being collected by over 75%, ultimately saving tens of thousands of dollars a year at our scale. 
-[Diagnose Log Sources](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#understanding-ingested-data-volume)
 
 ---
 
+<br/>
 The content above is the first of hopefully a few hard won lessons on how to lower a large Azure bill by looking into the nooks and crannies where costs silently accumulate. Feel free to drop me a note if you’ve found this helpful or have suggestions I should add!
+
+
