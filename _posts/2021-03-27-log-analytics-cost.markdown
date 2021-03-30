@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to Lower Your Azure Bill - Log Analytics Workspace"
+title:  "How To: Lower Your Azure Bill - Log Analytics Workspace"
 date:   2021-03-27 15:00:00
 categories: azure cost
 ---
